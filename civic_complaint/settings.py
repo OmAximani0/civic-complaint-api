@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-import dj_database_url,os
+import dj_database_url,os, django_heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -133,9 +133,9 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static")
-# ]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static")
+]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -172,5 +172,5 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 AUTH_USER_MODEL = 'users.Users'
 
 db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
+# DATABASES['default'].update(db_from_env)
+django_heroku.settings(locals())
