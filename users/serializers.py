@@ -8,12 +8,12 @@ from state_city.models  import States,Cities
 class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
-            print('create been called')
-            password = validated_data.pop('password')
-            user = super().create(validated_data)
-            user.set_password(password)
-            user.save()
-            return user
+        print('create been called')
+        password = validated_data.pop('password')
+        user = super().create(validated_data)
+        user.set_password(password)
+        user.save()
+        return user
 
     class Meta:
         model = Users
