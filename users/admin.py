@@ -14,13 +14,13 @@ class UserAdminConfig(UserAdmin):
     list_filter = ('email', 'name', 'phone', 'is_active','is_staff','role')
     list_display = ('email', 'name', 'is_active','is_staff','role')
     fieldsets = (
-        (None, {'fields': ('email', 'name','phone','state_id','city_id','role','password','country')}),
+        (None, {'fields': ('email', 'name','phone','state_id','adhar','city_id','role','password','country')}),
         ('Permissions', {'fields': ('is_active','is_staff')})
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'name', 'phone','state_id', 'city_id' ,'role' ,'country', 'password1', 'password2', 'is_active', 'is_staff')}
+            'fields': ('email', 'name', 'phone','state_id', 'city_id', 'adhar' ,'role' ,'country', 'password1', 'password2', 'is_active', 'is_staff')}
          ),
     )
     ordering = ('role',)
